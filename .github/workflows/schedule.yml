@@ -2,6 +2,9 @@ name: Update gist with random Xcode shortcut
 on:
   schedule:
     - cron: "0 0 * * *"
+  push:
+    branches:    
+      - master
 jobs:
   update-gist:
     runs-on: macOS-latest
