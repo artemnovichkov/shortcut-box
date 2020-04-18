@@ -76,9 +76,8 @@ do {
     }
 
     let file = File(content: shortcut.description)
-    let description = "👨‍💻 New \(shortcuts.name) shortcut every day"
-    let gist = Gist(description: description,
-                    files: [description: file])
+    let gist = Gist(description: "👨‍💻 New \(shortcuts.name) shortcut every day",
+                    files: ["shortcut.md": file])
 
     guard let gistToken = ProcessInfo.processInfo.environment["GIST_TOKEN"] else {
         throw Error.noGistToken
