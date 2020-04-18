@@ -1,0 +1,12 @@
+{
+  "shortcuts": [
+    {
+      "keys": "⌃+⌘+E",
+      "description": "Edit all in scope"
+    },
+    {
+      "keys": "⇧+⌘+O",
+      "description": "Open quickly"
+    }
+  ]
+}
