@@ -1,12 +1,8 @@
-```
 <p align="center">
-  <img src="https://github.com/artemnovichkov/shortcut-box/.github/example.png">
+  <img width=400 src=".github/example.png">
   <h3 align="center">shortcut-box</h3>
   <p align="center">👨‍💻 Update a pinned gist to contain random IDE shortcut</p>
 </p>
-```
-
-
 
 ![Update gist with random Xcode shortcut](https://github.com/artemnovichkov/shortcut-box/workflows/Update%20gist%20with%20random%20Xcode%20shortcut/badge.svg?event=schedule)
 
