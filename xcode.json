@@ -25,5 +25,9 @@
       "key": "⌘ + 0",
       "command": "Show Navigator"
     },
+        {
+      "key": "⇧ + ⌘ + Y",
+      "command": "Show Debug Area"
+    },
   ]
 }
