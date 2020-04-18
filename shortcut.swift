@@ -17,6 +17,7 @@ extension Shortcut: CustomStringConvertible {
 
 struct Shortcuts: Decodable {
 
+    let name: String
     let shortcuts: [Shortcut]
 }
 
@@ -45,7 +46,7 @@ extension Error: CustomStringConvertible {
     var description: String {
         switch self {
             case .wrongArguments:
-                return "Add a path to shortcuts"
+                return "The are no path to shortcuts. Example: shortcut.swift xcode.json"
             case .noShortcuts:
                 return "There are no shortcuts"
             case .noGistToken:
@@ -75,8 +76,9 @@ do {
     }
 
     let file = File(content: shortcut.description)
-    let gist = Gist(description: "Updated by https://github.com/artemnovichkov/shortcut-box",
-                    files: ["👨‍💻 New Xcode shortcut every day": file])
+    let description = "👨‍💻 New \(shortcuts.name) shortcut every day"
+    let gist = Gist(description: description,
+                    files: [description: file])
 
     guard let gistToken = ProcessInfo.processInfo.environment["GIST_TOKEN"] else {
         throw Error.noGistToken
