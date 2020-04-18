@@ -2,12 +2,28 @@
   "name": "Xcode",
   "shortcuts": [
     {
-      "key": "⌃+⌘+E",
+      "key": "⌃ + ⌘ + E",
       "command": "Edit all in scope"
     },
     {
-      "key": "⇧+⌘+O",
-      "command": "Open quickly"
-    }
+      "key": "⇧ + ⌘ + O",
+      "command": "Open quickly..."
+    },
+    {
+      "key": "⌘ + /",
+      "command": "Comment Selection"
+    },
+    {
+      "key": "⇧ + ⌘ + F",
+      "command": "Find in Workspace..."
+    },
+    {
+      "key": "⇧ + ⌘ + J",
+      "command": "Reveal in Project Navigator"
+    },
+    {
+      "key": "⌘ + 0",
+      "command": "Show Navigator"
+    },
   ]
 }
