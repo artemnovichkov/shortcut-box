@@ -92,6 +92,9 @@ do {
     pathGistRequest.httpBody = try JSONEncoder().encode(gist)
     let task = URLSession.shared.dataTask(with: pathGistRequest) { data, response, error in
         print(data, response, error)
+        if let response = response as? HTTPURLResponse, (200...299) ~= response.statusCode {
+            exit(EXIT_FAILURE)
+        }
         exit(error == nil ? EXIT_SUCCESS : EXIT_FAILURE)
     }
     task.resume()
