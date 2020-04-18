@@ -1,12 +1,12 @@
 {
   "shortcuts": [
     {
-      "keys": "⌃+⌘+E",
-      "description": "Edit all in scope"
+      "key": "⌃+⌘+E",
+      "command": "Edit all in scope"
     },
     {
-      "keys": "⇧+⌘+O",
-      "description": "Open quickly"
+      "key": "⇧+⌘+O",
+      "command": "Open quickly"
     }
   ]
 }
