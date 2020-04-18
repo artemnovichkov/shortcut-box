@@ -99,4 +99,5 @@ do {
 }
 catch {
     print(error)
+    exit(EXIT_FAILURE)
 }
