@@ -15,5 +15,5 @@ jobs:
           chmod +x shortcut.swift
           ./shortcut.swift xcode.json
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
