@@ -34,6 +34,7 @@ struct File: Encodable {
 enum Error: Swift.Error {
 
     case wrongArguments
+    case noShortcuts
     case noGistToken
     case noGithubToken
     case wrongURL(String)
@@ -45,6 +46,8 @@ extension Error: CustomStringConvertible {
         switch self {
             case .wrongArguments:
                 return "Add a path to shortcuts"
+            case .noShortcuts:
+                return "There are no shortcuts"
             case .noGistToken:
                 return "There are no gist token"
             case .noGithubToken:
@@ -67,7 +70,9 @@ do {
 
     let data = try Data(contentsOf: shortcutsURL)
     let shortcuts = try JSONDecoder().decode(Shortcuts.self, from: data)
-    let shortcut = shortcuts.shortcuts.randomElement()!
+    guard let shortcut = shortcuts.shortcuts.randomElement() else {
+        throw Error.noShortcuts
+    }
 
     let file = File(content: shortcut.description)
     let gist = Gist(description: "Updated by https://github.com/artemnovichkov/shortcut-box",
@@ -92,8 +97,8 @@ do {
     pathGistRequest.httpBody = try JSONEncoder().encode(gist)
     let task = URLSession.shared.dataTask(with: pathGistRequest) { data, response, error in
         print(data, response, error)
-        if let response = response as? HTTPURLResponse, (200...299) ~= response.statusCode {
-            exit(EXIT_FAILURE)
+        if let response = response as? HTTPURLResponse {
+            exit((200...299) ~= response.statusCode ? EXIT_SUCCESS : EXIT_FAILURE)
         }
         exit(error == nil ? EXIT_SUCCESS : EXIT_FAILURE)
     }
