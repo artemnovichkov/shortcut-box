@@ -83,7 +83,7 @@ do {
     }
     var pathGistRequest = URLRequest(url: gistURL)
 
-    guard let githubToken = ProcessInfo.processInfo.environment["GITHUB_TOKEN"] else {
+    guard let githubToken = ProcessInfo.processInfo.environment["GH_TOKEN"] else {
         throw Error.noGithubToken
     }
 
