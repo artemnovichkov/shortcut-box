@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Update gist
         run: |
+          chmod +x shortcut.swift
           ./shortcut.swift xcode.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
