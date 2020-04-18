@@ -56,7 +56,6 @@ extension Error: CustomStringConvertible {
 }
 
 do {
-    print(ProcessInfo.processInfo.environment)
     let arguments = CommandLine.arguments
 
     guard arguments.count >= 2 else {
