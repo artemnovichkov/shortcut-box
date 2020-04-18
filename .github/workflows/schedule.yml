@@ -1,0 +1,15 @@
+name: Update gist with random Xcode shortcut
+on:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  update-gist:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Update gist
+        run: |
+          ./shortcut.swift xcode.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
