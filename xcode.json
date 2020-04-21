@@ -25,9 +25,65 @@
       "key": "⌘ + 0",
       "command": "Show Navigator"
     },
-        {
+    {
       "key": "⇧ + ⌘ + Y",
       "command": "Show Debug Area"
+    },
+    {
+      "key": "^ + ⌘ + R",
+      "command": "Run Without Building"
+    },
+    {
+      "key": "^ + 6",
+      "command": "Show Document Items"
+    },
+    {
+      "key": "⌘ + L",
+      "command": "Goto line"
+    },
+    {
+      "key": "^ + ⌘ + Click",
+      "command": "Jump to Definition"
+    },
+    {
+      "key": "⌘ + B",
+      "command": "Build"
+    },
+    {
+      "key": "⌘ + R",
+      "command": "Run"
+    },
+    {
+      "key": "⌘ + U",
+      "command": "Test"
+    },
+    {
+      "key": "⌘ + .",
+      "command": "Stop"
+    },
+    {
+      "key": "⌘ + (1-9)",
+      "command": "Switch between navigators"
+    },
+    {
+      "key": "⌃ + ⌘ + →",
+      "command": "Go forward"
+    },
+    {
+      "key": "⌃ + ⌘ + ←",
+      "command": "Go back"
+    },
+    {
+      "key": "⌃ + Space",
+      "command": "Show completions"
+    },
+    {
+      "key": "⇧ + ⌘ + K",
+      "command": "Clean"
+    },
+    {
+      "key": "⌘ + F",
+      "command": "Find in file"
     },
   ]
 }
