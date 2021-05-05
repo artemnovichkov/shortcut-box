@@ -15,11 +15,12 @@ jobs:
           swift run ShortcutBox xcode.json
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git clone "https://${GITHUB_TOKEN}@gist.github.com/c24fd619278b272471af51f06c1ce6b2.git" gist
+          git clone "https://user:${GH_TOKEN}@gist.github.com/${GIST_TOKEN}.git" gist
           mv image.jpg gist
           cd gist
           git add image.jpg
           git commit -m "Update image"
           git push origin master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
