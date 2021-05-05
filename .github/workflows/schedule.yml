@@ -10,7 +10,16 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          repository: artemnovichkov/c24fd619278b272471af51f06c1ce6b2
-          ref: master
-      - run: ls
+      - name: Update Gist
+        run: |
+          swift run ShortcutBox xcode.json
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git clone "https://${GITHUB_TOKEN}@gist.github.com/c24fd619278b272471af51f06c1ce6b2.git" gist
+          mv image.jpg gist
+          cd gist
+          git add image.jpg
+          git commit -m "Update image"
+          git push origin master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
