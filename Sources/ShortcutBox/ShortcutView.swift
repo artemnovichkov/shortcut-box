@@ -19,3 +19,9 @@ struct ShortcutView: View {
         .padding()
     }
 }
+
+struct ShortcutView_Previews: PreviewProvider {
+    static var previews: some View {
+        ShortcutView(shortcut: .init(key: "⌃ + ⌘ + E", command: "Edit all in scope"))
+    }
+}
