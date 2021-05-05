@@ -9,9 +9,9 @@ jobs:
   update-gist:
     runs-on: macOS-latest
     steps:
-      uses: actions/checkout@v2
-      with:
-        path: main
-      - repository: artemnovichkov/c24fd619278b272471af51f06c1ce6b2
-        run: |
-        ls
+      - name: Gist
+      - uses: actions/checkout@v2
+        with:
+          repository: artemnovichkov/c24fd619278b272471af51f06c1ce6b2
+      - run: |
+          ls
