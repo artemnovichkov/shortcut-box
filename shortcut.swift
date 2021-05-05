@@ -62,7 +62,7 @@ extension Error: CustomStringConvertible {
 do {
     let arguments = CommandLine.arguments
 
-    guard arguments.count >= 2 else {
+    guard arguments.count == 2 else {
         throw Error.wrongArguments
     }
 
@@ -99,7 +99,8 @@ do {
     let task = URLSession.shared.dataTask(with: pathGistRequest) { data, response, error in
         print(data, response, error)
         if let response = response as? HTTPURLResponse {
-            exit((200...299) ~= response.statusCode ? EXIT_SUCCESS : EXIT_FAILURE)
+            let exitCode = (200...299) ~= response.statusCode ? EXIT_SUCCESS : EXIT_FAILURE
+            exit(exitCode)
         }
         exit(error == nil ? EXIT_SUCCESS : EXIT_FAILURE)
     }
