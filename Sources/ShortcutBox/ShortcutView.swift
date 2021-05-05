@@ -12,6 +12,7 @@ struct ShortcutView: View {
         VStack(alignment: .leading) {
             Text(shortcut.key)
                 .font(.title)
+                .foregroundColor(Color.black)
             Text(shortcut.command)
                 .font(.body)
                 .foregroundColor(Color.gray)

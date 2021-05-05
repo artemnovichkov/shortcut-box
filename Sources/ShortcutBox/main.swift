@@ -15,7 +15,7 @@ func makeShortcuts(path: String) throws -> Shortcuts {
 func makeImageData(shortcut: Shortcut) -> Data? {
     let view = ShortcutView(shortcut: shortcut)
     let hostingView = NSHostingView(rootView: view)
-    hostingView.frame = CGRect(x: 0, y: 0, width: 500, height: 100)
+    hostingView.frame = CGRect(x: 0, y: 0, width: 442, height: 100)
     return rasterize(hostingView)
 }
 
