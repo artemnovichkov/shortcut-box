@@ -21,3 +21,5 @@ jobs:
           git add image.jpg
           git commit -m "Update image"
           git push
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
