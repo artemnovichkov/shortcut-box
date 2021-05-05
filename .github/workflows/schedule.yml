@@ -9,15 +9,19 @@ jobs:
   update-gist:
     runs-on: macOS-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Update gist
+      - uses: actions/checkout@v2
+      - name: Generate Image
         run: |
           swift run ShortcutBox xcode.json
-          git clone https://gist.github.com/{$GIST_TOKEN}.git
           ls -l image.jpg
+      - uses: actions/checkout@v2
+        with:
+          repository: artemnovichkov/c24fd619278b272471af51f06c1ce6b2
+      - name: Update Gist
+        run: |
+          ls
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add image.jpg
           git commit -m "Update image"
-          git push origin master
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          git push
