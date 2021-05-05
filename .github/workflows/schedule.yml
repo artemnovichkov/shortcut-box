@@ -12,8 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Update gist
         run: |
-          chmod +x shortcut.swift
-          ./shortcut.swift xcode.json
+          swift run ShortcutBox xcode.json
           git clone https://gist.github.com/{$GIST_TOKEN}.git
           ls -l image.jpg
           git add image.jpg
