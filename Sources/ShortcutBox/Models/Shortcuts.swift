@@ -9,3 +9,9 @@ struct Shortcuts: Decodable {
     let name: String
     let shortcuts: [Shortcut]
 }
+
+struct Shortcut: Decodable {
+
+    let key: String
+    let command: String
+}

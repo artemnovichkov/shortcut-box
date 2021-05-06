@@ -4,11 +4,8 @@
 
 import SwiftUI
 
-func makeShortcuts(path: String) throws -> Shortcuts {
-    var shortcutsURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-    shortcutsURL.appendPathComponent(path)
-
-    let data = try Data(contentsOf: shortcutsURL)
+func makeShortcuts(url: URL) throws -> Shortcuts {
+    let data = try Data(contentsOf: url)
     return try JSONDecoder().decode(Shortcuts.self, from: data)
 }
 
@@ -35,17 +32,20 @@ do {
         throw Error.wrongArguments
     }
     
-    let shortcuts = try makeShortcuts(path: arguments[1])
+    let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+    let shortcutsURL = currentDirectoryURL.appendingPathComponent(arguments[1])
+    
+    let shortcuts = try makeShortcuts(url: shortcutsURL)
     guard let shortcut = shortcuts.shortcuts.randomElement() else {
         throw Error.noShortcuts
     }
     
     guard let data = makeImageData(shortcut: shortcut) else {
-        throw Error.noShortcuts
+        throw Error.noImageData
     }
     
-    let url = URL(fileURLWithPath: FileManager.default.currentDirectoryPath + "/image.jpg")
-    try data.write(to: url)
+    let imageURL = currentDirectoryURL.appendingPathComponent("image.jpg")
+    try data.write(to: imageURL)
 }
 catch {
     print(error)
