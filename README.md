@@ -19,8 +19,8 @@
 
 ## Author
 
-Artem Novichkov, novichkoff93@gmail.com
+Artem Novichkov, mail@artemnovichkov.com
 
 ## License
 
-The project is available under the MIT license. See the LICENSE file for more info.
+The project is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
