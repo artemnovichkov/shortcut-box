@@ -12,6 +12,6 @@ let package = Package(
         .executable(name: "ShortcutBox", targets: ["ShortcutBox"]),
     ],
     targets: [
-        .target(name: "ShortcutBox", dependencies: []),
+        .target(name: "ShortcutBox"),
     ]
 )

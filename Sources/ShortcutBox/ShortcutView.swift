@@ -4,11 +4,15 @@
 
 import SwiftUI
 
-struct ShortcutView: View {
+public struct ShortcutView: View {
     
-    let shortcut: Shortcut
+    public let shortcut: Shortcut
     
-    var body: some View {
+    public init(shortcut: Shortcut) {
+        self.shortcut = shortcut
+    }
+    
+    public var body: some View {
         VStack(alignment: .leading) {
             Text(shortcut.key)
                 .font(.title)
@@ -18,11 +22,5 @@ struct ShortcutView: View {
                 .foregroundColor(Color.gray)
         }
         .padding()
-    }
-}
-
-struct ShortcutView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShortcutView(shortcut: .init(key: "⌃ + ⌘ + E", command: "Edit all in scope"))
     }
 }
