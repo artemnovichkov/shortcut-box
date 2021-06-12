@@ -85,5 +85,13 @@
       "key": "⌘ + F",
       "command": "Find in file"
     },
+    {
+      "key": "^ + \",
+      "command": "Jump to Next Change"
+    },
+    {
+      "key": "^ + |",
+      "command": "Jump to Previous Change"
+    },
   ]
 }
