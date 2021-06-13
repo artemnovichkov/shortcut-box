@@ -86,7 +86,7 @@
       "command": "Find in file"
     },
     {
-      "key": "^ + \",
+      "key": "^ + \\",
       "command": "Jump to Next Change"
     },
     {
