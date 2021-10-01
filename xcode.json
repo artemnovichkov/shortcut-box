@@ -93,5 +93,25 @@
       "key": "^ + |",
       "command": "Jump to Previous Change"
     },
+    {
+      "key": "⌘ + ⌥ + J",
+      "command": "Filter in Navigators"
+    },
+    {
+      "key": "⌘ + G",
+      "command": "Find next"
+    },
+    {
+      "key": "⌘ + ⇧ + G",
+      "command": "Find previous"
+    },
+    {
+      "key": "⌃ + ⌥ + ⌘ + G",
+      "command": "Run Previous Test Case(s)"
+    },
+    {
+      "key": "⌃ + ⌥ + ⌘ + U",
+      "command": "Run Selected Test Case"
+    }
   ]
 }
