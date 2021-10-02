@@ -19,7 +19,7 @@
 
 ## Author
 
-Artem Novichkov, mail@artemnovichkov.com
+Artem Novichkov, https://www.artemnovichkov.com/about
 
 ## License
 
