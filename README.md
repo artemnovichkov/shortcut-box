@@ -4,6 +4,8 @@
   <p align="center">👨‍💻 Update a pinned gist to contain random IDE shortcut</p>
 </p>
 
+[![Update gist with random Xcode shortcut](https://github.com/artemnovichkov/shortcut-box/actions/workflows/schedule.yml/badge.svg)](https://github.com/artemnovichkov/shortcut-box/actions/workflows/schedule.yml)
+
 ## Setup
 
 1. Create a new public [GitHub Gist](https://gist.github.com).
