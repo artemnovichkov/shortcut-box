@@ -1,5 +1,5 @@
 <p align="center">
-  <img width=400 src=".github/example.png">
+  <img width=400 src="https://gist.githubusercontent.com/artemnovichkov/c24fd619278b272471af51f06c1ce6b2/raw/image.jpg">
   <h3 align="center">shortcut-box</h3>
   <p align="center">👨‍💻 Update a pinned gist to contain random IDE shortcut</p>
   <p align="center">
