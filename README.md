@@ -2,9 +2,12 @@
   <img width=400 src=".github/example.png">
   <h3 align="center">shortcut-box</h3>
   <p align="center">👨‍💻 Update a pinned gist to contain random IDE shortcut</p>
+  <p align="center">
+    <a href="https://github.com/artemnovichkov/shortcut-box/actions/workflows/schedule.yml">
+      <img src="https://github.com/artemnovichkov/shortcut-box/actions/workflows/schedule.yml/badge.svg">
+    </a>
+  </p>
 </p>
-
-[![Update gist with random Xcode shortcut](https://github.com/artemnovichkov/shortcut-box/actions/workflows/schedule.yml/badge.svg)](https://github.com/artemnovichkov/shortcut-box/actions/workflows/schedule.yml)
 
 ## Setup
 
