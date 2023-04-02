@@ -1,1 +1,0 @@
-/Users/artemnovichkov/Developer/shortcut-box/Sources/ShortcutBox/Shortcuts.swift

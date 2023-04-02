@@ -6,12 +6,14 @@ import PackageDescription
 let package = Package(
     name: "ShortcutBox",
     platforms: [
-        .macOS(.v10_15),
+        .macOS(.v13),
     ],
     products: [
+        .library(name: "Shortcut", targets: ["Shortcut"]),
         .executable(name: "ShortcutBox", targets: ["ShortcutBox"]),
     ],
     targets: [
-        .executableTarget(name: "ShortcutBox"),
+        .target(name: "Shortcut"),
+        .executableTarget(name: "ShortcutBox", dependencies: [.byName(name: "Shortcut")]),
     ]
 )

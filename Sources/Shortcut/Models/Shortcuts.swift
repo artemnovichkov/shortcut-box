@@ -6,8 +6,13 @@ import Foundation
 
 public struct Shortcuts: Decodable {
 
-    let name: String
-    let shortcuts: [Shortcut]
+    public let name: String
+    public let shortcuts: [Shortcut]
+
+    public static func makeShortcuts(url: URL) throws -> Shortcuts {
+        let data = try Data(contentsOf: url)
+        return try JSONDecoder().decode(Shortcuts.self, from: data)
+    }
 }
 
 public struct Shortcut: Decodable {
