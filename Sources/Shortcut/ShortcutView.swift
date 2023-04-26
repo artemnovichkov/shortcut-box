@@ -28,19 +28,6 @@ public struct ShortcutView: View {
     }
 }
 
-public extension ShortcutView {
-
-    @MainActor
-    func makeImageData(size: CGSize) -> Data? {
-        let imageRenderer = ImageRenderer(content: self.frame(width: size.width, height: size.height))
-        guard let cgImage = imageRenderer.cgImage else {
-            return nil
-        }
-        let bitmapImageRep = NSBitmapImageRep(cgImage: cgImage)
-        return bitmapImageRep.representation(using: .jpeg, properties: [:])
-    }
-}
-
 struct ShortcutView_Previews: PreviewProvider {
 
     static var previews: some View {
