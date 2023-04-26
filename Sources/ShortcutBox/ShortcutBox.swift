@@ -31,8 +31,8 @@ struct ShortcutBox {
         }
 
         let shortcutView = ShortcutView(shortcut: shortcut)
-        let frame = CGRect(x: 0, y: 0, width: 442, height: 100)
-        guard let data = shortcutView.makeImageData(frame: frame) else {
+        let size = CGSize(width: 442, height: 100)
+        guard let data = shortcutView.makeImageData(size: size) else {
             throw Error.noImageData
         }
 

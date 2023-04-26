@@ -30,15 +30,14 @@ public struct ShortcutView: View {
 
 public extension ShortcutView {
 
-    func makeImageData(frame: CGRect) -> Data? {
-        let hostingView = NSHostingView(rootView: self)
-        hostingView.frame = frame
-        guard let bitmapRepresentation = hostingView.bitmapImageRepForCachingDisplay(in: hostingView.bounds) else {
+    @MainActor
+    func makeImageData(size: CGSize) -> Data? {
+        let imageRenderer = ImageRenderer(content: self.frame(width: size.width, height: size.height))
+        guard let cgImage = imageRenderer.cgImage else {
             return nil
         }
-        bitmapRepresentation.size = hostingView.bounds.size
-        hostingView.cacheDisplay(in: hostingView.bounds, to: bitmapRepresentation)
-        return bitmapRepresentation.representation(using: .jpeg, properties: [:])
+        let bitmapImageRep = NSBitmapImageRep(cgImage: cgImage)
+        return bitmapImageRep.representation(using: .jpeg, properties: [:])
     }
 }
 
