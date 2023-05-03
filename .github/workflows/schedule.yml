@@ -16,7 +16,7 @@ jobs:
       - name: Update Gist
         run: |
           swift build
-          shortcut-box -i xcode.json -o image.jpg
+          .build/apple/Products/Release/ShortcutBox -i xcode.json -o image.jpg
           git config user.name github-actions
           git config user.email github-actions@github.com
           git clone "https://user:${GH_TOKEN}@gist.github.com/${GIST_TOKEN}.git" gist
