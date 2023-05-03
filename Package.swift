@@ -12,8 +12,14 @@ let package = Package(
         .library(name: "Shortcut", targets: ["Shortcut"]),
         .executable(name: "ShortcutBox", targets: ["ShortcutBox"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
+    ],
     targets: [
         .target(name: "Shortcut"),
-        .executableTarget(name: "ShortcutBox", dependencies: [.byName(name: "Shortcut")]),
+        .executableTarget(name: "ShortcutBox", dependencies: [
+            .byName(name: "Shortcut"),
+            .product(name: "ArgumentParser", package: "swift-argument-parser")
+        ]),
     ]
 )

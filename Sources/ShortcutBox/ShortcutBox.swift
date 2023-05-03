@@ -4,26 +4,29 @@
 
 import SwiftUI
 import Shortcut
+import ArgumentParser
 
 @main
-struct ShortcutBox {
+struct ShortcutBox: ParsableCommand {
 
     enum Error: Swift.Error {
 
-        case wrongArguments
         case noShortcuts
         case noImageData
     }
 
-    static func main() throws {
-        let arguments = CommandLine.arguments
+    static let configuration = CommandConfiguration(abstract: "Generate a shortcut image.")
 
-        guard arguments.count == 2 else {
-            throw Error.wrongArguments
-        }
+    @Option(name: [.short, .long], help: "An input file in JSON format.")
+    var inputFile: String
 
+    @Option(name: [.short, .long], help: "A name for generated image.")
+    var outputFile: String
+
+    @MainActor
+    mutating func run() throws {
         let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        let shortcutsURL = currentDirectoryURL.appendingPathComponent(arguments[1])
+        let shortcutsURL = currentDirectoryURL.appendingPathComponent(inputFile)
 
         let shortcuts = try Shortcuts.makeShortcuts(url: shortcutsURL)
         guard let shortcut = shortcuts.shortcuts.randomElement() else {
@@ -36,21 +39,17 @@ struct ShortcutBox {
             throw Error.noImageData
         }
 
-        let imageURL = currentDirectoryURL.appendingPathComponent("image.jpg")
+        let imageURL = currentDirectoryURL.appendingPathComponent(outputFile)
         try data.write(to: imageURL)
     }
-
-    // MARK: - Private
 }
 
 extension ShortcutBox.Error: CustomStringConvertible {
 
     var description: String {
         switch self {
-            case .wrongArguments:
-                return "The are no path to shortcuts. Example: swift run ShortcutBox xcode.json."
-            case .noShortcuts:
-                return "There are no shortcuts."
+        case .noShortcuts:
+            return "There are no shortcuts."
         case .noImageData:
             return "Failed to generate image data."
         }
