@@ -22,8 +22,12 @@ jobs:
           mv image.jpg gist
           cd gist
           git add image.jpg
-          git commit -m "Update image"
-          git push origin master
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update image"
+            git push origin master
+          fi
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
