@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,14 +6,14 @@ import PackageDescription
 let package = Package(
     name: "ShortcutBox",
     platforms: [
-        .macOS(.v13),
+        .macOS(.v26),
     ],
     products: [
         .library(name: "Shortcut", targets: ["Shortcut"]),
         .executable(name: "ShortcutBox", targets: ["ShortcutBox"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
+        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.7.0"),
     ],
     targets: [
         .target(name: "Shortcut"),

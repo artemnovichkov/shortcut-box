@@ -7,7 +7,7 @@ import Shortcut
 import ArgumentParser
 
 @main
-struct ShortcutBox: ParsableCommand {
+struct ShortcutBox: @preconcurrency ParsableCommand {
 
     enum Error: Swift.Error {
 
