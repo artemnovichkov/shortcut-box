@@ -12,7 +12,7 @@ jobs:
   update-gist:
     runs-on: macos-26
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Update Gist
         run: |
           swift run ShortcutBox -i xcode.json -o image.jpg
@@ -22,8 +22,12 @@ jobs:
           mv image.jpg gist
           cd gist
           git add image.jpg
-          git commit -m "Update image"
-          git push origin master
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update image"
+            git push origin master
+          fi
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
